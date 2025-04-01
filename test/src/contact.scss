@@ -1,0 +1,213 @@
+// Variables
+$primary-color: #2c3e50;
+$secondary-color: gold;
+$text-color: #333;
+$light-bg: #f9f9f9;
+$border-radius: 8px;
+$spacing-unit: 1.5rem;
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+// Base styles
+.contact-section {
+  background-color: $light-bg;
+  padding: $spacing-unit * 3 0;
+  min-height: 100vh;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
+
+// Header styles
+.contact-header {
+  text-align: center;
+  margin-bottom: $spacing-unit * 3;
+  
+  .contact-title {
+    color: $primary-color;
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit / 2;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: $secondary-color;
+    }
+  }
+  
+  .contact-subtitle {
+    font-size: 1.2rem;
+    color: lighten($text-color, 20%);
+    margin-top: $spacing-unit;
+  }
+}
+
+// Content layout
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-unit * 3;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Contact info cards
+.contact-info {
+  display: grid;
+  gap: $spacing-unit * 1.5;
+  align-content: start;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+.info-card {
+  background: white;
+  padding: $spacing-unit * 1.5;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  transition: $transition;
+  border-left: 4px solid $secondary-color;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .info-icon {
+    font-size: 2rem;
+    margin-bottom: $spacing-unit;
+    color: $secondary-color;
+  }
+  
+  .info-title {
+    color: $primary-color;
+    margin-bottom: $spacing-unit / 2;
+    font-size: 1.3rem;
+  }
+  
+  .info-text {
+    line-height: 1.6;
+    color: $text-color;
+    
+    a {
+      color: $text-color;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Contact form styles
+.contact-form {
+  background: white;
+  padding: $spacing-unit * 2;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  .form-group {
+    margin-bottom: $spacing-unit * 1.5;
+    
+    label {
+      display: block;
+      margin-bottom: $spacing-unit / 3;
+      font-weight: 600;
+      color: $primary-color;
+    }
+    
+    input,
+    textarea {
+      width: 100%;
+      padding: $spacing-unit / 2;
+      border: 1px solid #ddd;
+      border-radius: $border-radius / 2;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $secondary-color;
+        box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+      }
+      
+      &::placeholder {
+        color: lighten($text-color, 40%);
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  }
+  
+  .submit-button {
+    background: $secondary-color;
+    color: $primary-color;
+    border: none;
+    padding: $spacing-unit / 1.5 $spacing-unit * 2;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: $transition;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    &:hover {
+      background: darken($secondary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .contact-header {
+    .contact-title {
+      font-size: 2rem;
+    }
+    
+    .contact-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  .contact-form {
+    padding: $spacing-unit;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: $spacing-unit * 2 0;
+  }
+  
+  .contact-header {
+    margin-bottom: $spacing-unit * 2;
+  }
+}

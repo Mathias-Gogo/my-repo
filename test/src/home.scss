@@ -1,0 +1,110 @@
+// Variables
+$primary-color: #2c3e50;
+$secondary-color: #ffd400; // Matching your navbar accent
+$text-color: #333;
+$light-bg: #f9f9f9;
+$spacing-unit: 1.5rem;
+$border-radius: 8px;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Container styles
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-unit;
+}
+
+// Home section styles
+.home {
+  padding: $spacing-unit * 2 0;
+  margin-bottom: $spacing-unit * 2;
+
+  h1 {
+    color: $primary-color;
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit;
+    font-weight: 700;
+    
+    // Accent effect to match your brand
+    span {
+      color: $secondary-color;
+    }
+  }
+
+  p {
+    color: $text-color;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: $spacing-unit;
+    
+    &:last-child {
+      margin-bottom: 0;
+      font-weight: 600;
+      color: darken($primary-color, 10%);
+    }
+  }
+}
+
+// Image gallery styles
+.home-pic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-unit * 2;
+  margin-top: $spacing-unit * 3;
+
+  figure {
+    background: white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid $secondary-color;
+    }
+
+    figcaption {
+      padding: $spacing-unit;
+      color: $text-color;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .home {
+    padding: $spacing-unit 0;
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+  
+  .home-pic {
+    grid-template-columns: 1fr;
+    gap: $spacing-unit;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+}

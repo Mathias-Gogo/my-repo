@@ -1,0 +1,83 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.home {
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+.home h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+.home h1 span {
+  color: #ffd400;
+}
+.home p {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.home p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #1a252f;
+}
+
+.home-pic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4.5rem;
+}
+.home-pic figure {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.home-pic figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.home-pic figure img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  border-bottom: 3px solid #ffd400;
+}
+.home-pic figure figcaption {
+  padding: 1.5rem;
+  color: #333;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 1.5rem 0;
+  }
+  .home h1 {
+    font-size: 2rem;
+  }
+  .home p {
+    font-size: 1rem;
+  }
+  .home-pic {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .home h1 {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=home.css.map */

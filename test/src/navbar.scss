@@ -1,0 +1,164 @@
+// Variables
+$navbar-bg: #d8d7d7a0;
+$navbar-height: 80px;
+$navbar-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$link-color: #2c3e50;
+$link-hover-color: gold; // Matching your brand accent
+$link-active-color: darken(gold, 10%);
+$link-spacing: 2rem;
+$mobile-breakpoint: 768px;
+$hamburger-color: #2c3e50;
+$logo-height: 40px;
+
+// Navbar base styles
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background-color: $navbar-bg;
+  backdrop-filter: blur(10px);
+  box-shadow: $navbar-shadow;
+  position: fixed;
+  width: 95.5%;
+  top: 0;
+  margin-top: 2rem;
+  z-index: 1000;
+
+  // Logo styles
+  .logo {
+    
+    img {
+      height: 50px;
+      width: 100px;
+      transition: transform 0.3s ease;
+      padding: 10px;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // Navigation links
+  .navbar-links {
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: $link-spacing;
+      align-items: center;
+
+      li {
+        a {
+          color: $link-color;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1rem;
+          position: relative;
+          transition: color 0.2s ease;
+          padding: 10px;
+
+          &:hover {
+            color: $link-hover-color;
+          }
+
+          // Active link indicator
+          &.active {
+            color: $link-active-color;
+            
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: 2px;
+              background-color: $link-active-color;
+            }
+          }
+        }
+
+        // Hamburger menu icon (hidden by default)
+        &.media {
+          display: none;
+          
+          a {
+            display: flex;
+            padding: 0.5rem;
+            
+            svg {
+              transition: transform 0.3s ease, fill 0.2s ease;
+              fill: $hamburger-color;
+              
+              &:hover {
+                fill: $link-hover-color;
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsive styles
+@media (max-width: $mobile-breakpoint) {
+  .navbar {
+    padding: 0 1.5rem;
+    height: 70px;
+    
+    .logo {
+      height: $logo-height * 0.9;
+    }
+    
+    .navbar-links {
+      ul {
+        // Hide regular navigation items
+        li.bigMedia {
+          display: none;
+        }
+        
+        // Show hamburger menu
+        li.media {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Small mobile adjustments
+@media (max-width: 480px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: $navbar-bg;
+    backdrop-filter: blur(10px);
+    box-shadow: $navbar-shadow;
+    position: fixed;
+    width: 80%;
+    top: 0;
+    margin-top: 2rem;
+    z-index: 1000;
+
+    // Logo styles
+    .logo {
+      
+      img {
+        height: 50px;
+        width: 100px;
+        transition: transform 0.3s ease;
+        padding: 10px;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
